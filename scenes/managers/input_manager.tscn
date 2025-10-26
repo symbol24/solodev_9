@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://38rlm62o0urr"]
+
+[ext_resource type="Script" uid="uid://qxuyim2e4atn" path="res://code/managers/input_manager.gd" id="1_q7xte"]
+
+[node name="InputManager" type="Node"]
+script = ExtResource("1_q7xte")
+metadata/_custom_type_script = "uid://qxuyim2e4atn"

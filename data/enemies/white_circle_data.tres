@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3 uid="uid://bwcppy3j4u2xq"]
+
+[ext_resource type="Script" uid="uid://dj6xvphbvhy0r" path="res://code/utilities/damage.gd" id="1_yn5d2"]
+[ext_resource type="Texture2D" uid="uid://dr7rri161ueoc" path="res://textures/enemies/circle_outline.png" id="2_esjr6"]
+[ext_resource type="Script" uid="uid://bivrubw3f4esj" path="res://code/enemies/enemy_data.gd" id="3_xxy5b"]
+[ext_resource type="Texture2D" uid="uid://bj8p3apm7rtdl" path="res://textures/enemies/circle.png" id="4_1vps8"]
+
+[sub_resource type="Resource" id="Resource_00qn2"]
+script = ExtResource("1_yn5d2")
+value = 1
+metadata/_custom_type_script = "uid://dj6xvphbvhy0r"
+
+[resource]
+script = ExtResource("3_xxy5b")
+texture = ExtResource("4_1vps8")
+oultine = ExtResource("2_esjr6")
+contact_damage = SubResource("Resource_00qn2")
+id = &"white_circle"
+path = "uid://b7hr2tfqxjlr3"
+starting_hp = 1
+starting_movement_speed = 50.0
+starting_imune_time = 0.3
+metadata/_custom_type_script = "uid://bivrubw3f4esj"

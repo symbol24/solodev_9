@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MovingProjectileData" load_steps=4 format=3 uid="uid://l1gh67k1xm11"]
+
+[ext_resource type="Script" uid="uid://od042pqfk1jc" path="res://code/attacks/moving_projectile_data.gd" id="1_jagvr"]
+[ext_resource type="Script" uid="uid://dj6xvphbvhy0r" path="res://code/utilities/damage.gd" id="1_ouqml"]
+
+[sub_resource type="Resource" id="Resource_rlswy"]
+script = ExtResource("1_ouqml")
+value = 1
+metadata/_custom_type_script = "uid://dj6xvphbvhy0r"
+
+[resource]
+script = ExtResource("1_jagvr")
+move_speed = 500.0
+path = "uid://bklx0d1ltq74k"
+damage = SubResource("Resource_rlswy")
+metadata/_custom_type_script = "uid://od042pqfk1jc"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://tuamo82a00et"]
+
+[ext_resource type="Script" uid="uid://bxyeqa5ulqepi" path="res://code/boot/boot.gd" id="1_lhnci"]
+
+[node name="Boot" type="Node2D"]
+script = ExtResource("1_lhnci")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 54.0
+offset_top = 53.0
+offset_right = 110.0
+offset_bottom = 76.0
+text = "boooot"

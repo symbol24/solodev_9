@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerCharacterData" load_steps=4 format=3 uid="uid://b7663288ccnba"]
+
+[ext_resource type="Resource" uid="uid://yfmeehm2yvyn" path="res://data/character/attacks/black_attack.tres" id="1_8husm"]
+[ext_resource type="Script" uid="uid://dnumtpng4o2cm" path="res://code/character/player_character_data.gd" id="1_m6fsv"]
+[ext_resource type="Resource" uid="uid://l1gh67k1xm11" path="res://data/character/attacks/white_attack.tres" id="3_gxnxc"]
+
+[resource]
+script = ExtResource("1_m6fsv")
+black_attack = ExtResource("1_8husm")
+white_attack = ExtResource("3_gxnxc")
+id = &"player_character"
+path = "res://scenes/character/character.tscn"
+starting_movement_speed = 75.0
+metadata/_custom_type_script = "uid://dnumtpng4o2cm"

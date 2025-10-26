@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Scenes" load_steps=2 format=3 uid="uid://de8l0dctnt31x"]
+
+[ext_resource type="Script" uid="uid://cfr8qn5gtduk8" path="res://code/utilities/scenes.gd" id="1_b5506"]
+
+[resource]
+script = ExtResource("1_b5506")
+list = Dictionary[StringName, String]({
+&"game_manager": "res://scenes/managers/game_manager.tscn",
+&"input_manager": "res://scenes/managers/input_manager.tscn",
+&"scene_manager": "res://scenes/managers/scene_manager.tscn",
+&"test_level": "res://scenes/levels/test_level.tscn",
+&"ui": "res://scenes/ui/ui.tscn"
+})
+controls = Dictionary[StringName, String]({
+&"loading_screen": "res://scenes/ui/loading_screen.tscn",
+&"main_menu": "res://scenes/ui/main_menu.tscn",
+&"play_ui": "uid://ds3kuwniwtubl"
+})
+metadata/_custom_type_script = "uid://cfr8qn5gtduk8"

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://pp2s4p5vksxs"]
+
+[ext_resource type="Script" uid="uid://cqtles1ute0cs" path="res://code/ui/loading_screen.gd" id="1_rqdcv"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rqdcv")
+id = &"loading_screen"
+metadata/_custom_type_script = "uid://bt1wwjwsr1i2v"
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(650, 370)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 645.0
+offset_bottom = 365.0
+theme_type_variation = &"LoadingScreenPanel"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 315.0
+offset_right = 105.0
+offset_bottom = 338.0
+text = "Loading..."

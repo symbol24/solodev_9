@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cmsqb6bnb4hho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3fhk"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxuqd"]
+bg_color = Color(0.07450981, 0.07450981, 0.07450981, 1)
+
+[resource]
+FloorWhite/base_type = &"Panel"
+FloorWhite/styles/panel = SubResource("StyleBoxFlat_x3fhk")
+LoadingScreenPanel/base_type = &"Panel"
+LoadingScreenPanel/styles/panel = SubResource("StyleBoxFlat_oxuqd")
+StartTimer/base_type = &"Label"
+StartTimer/font_sizes/font_size = 108

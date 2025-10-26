@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddq4223v3ofd0"]
+
+[ext_resource type="Script" uid="uid://dqnlqebs33uy0" path="res://code/character/character.gd" id="1_cuyo6"]
+[ext_resource type="Texture2D" uid="uid://daeaofq33o17m" path="res://textures/triangle.png" id="2_mutn8"]
+[ext_resource type="Script" uid="uid://dqenbkmm4o1s2" path="res://code/utilities/hurt_box.gd" id="3_mutn8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cuyo6"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mutn8"]
+radius = 5.0
+
+[node name="Character" type="CharacterBody2D"]
+top_level = true
+z_index = 1000
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_cuyo6")
+
+[node name="remote_transform" type="RemoteTransform2D" parent="."]
+unique_name_in_owner = true
+update_rotation = false
+update_scale = false
+
+[node name="sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_mutn8")
+
+[node name="move_collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cuyo6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="shoot_point_1" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -5)
+
+[node name="shoot_point_2" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 5)
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("parent")]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("3_mutn8")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://dqenbkmm4o1s2"
+
+[node name="hurt_collider" type="CollisionShape2D" parent="HurtBox"]
+unique_name_in_owner = true
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_mutn8")
+debug_color = Color(0.70001274, 0.7452981, 0.3483393, 0.41960785)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://j3iyijxxwy20"]
+
+[ext_resource type="Script" uid="uid://br0vkoq3hnbat" path="res://code/attacks/moving_projectile.gd" id="1_7ecfg"]
+[ext_resource type="Texture2D" uid="uid://b75onhi26n6fv" path="res://textures/white_2x2.png" id="2_m6waf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6waf"]
+size = Vector2(6, 4)
+
+[node name="BlackAttack" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_7ecfg")
+metadata/_custom_type_script = "uid://br0vkoq3hnbat"
+
+[node name="sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(3, 2)
+texture = ExtResource("2_m6waf")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_m6waf")

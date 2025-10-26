@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7hr2tfqxjlr3"]
+
+[ext_resource type="Script" uid="uid://do0wa6ghqsnrv" path="res://code/enemies/enemy.gd" id="1_6xk8f"]
+[ext_resource type="Texture2D" uid="uid://byamsd7vgg4gm" path="res://textures/enemies/square.png" id="2_fcftc"]
+[ext_resource type="Script" uid="uid://np6ereni70g7" path="res://code/attacks/attack_area.gd" id="3_38ino"]
+[ext_resource type="Texture2D" uid="uid://dr7rri161ueoc" path="res://textures/enemies/circle_outline.png" id="3_lu5c6"]
+[ext_resource type="Script" uid="uid://dqenbkmm4o1s2" path="res://code/utilities/hurt_box.gd" id="4_fcftc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38ino"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcftc"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lu5c6"]
+radius = 8.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+motion_mode = 1
+script = ExtResource("1_6xk8f")
+metadata/_custom_type_script = "uid://do0wa6ghqsnrv"
+
+[node name="sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_fcftc")
+
+[node name="outline" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("3_lu5c6")
+
+[node name="move_collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_38ino")
+
+[node name="attack_area" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("3_38ino")
+metadata/_custom_type_script = "uid://np6ereni70g7"
+
+[node name="collider" type="CollisionShape2D" parent="attack_area"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_fcftc")
+disabled = true
+debug_color = Color(0.87837976, 0.304116, 0.40950477, 0.41960785)
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("4_fcftc")
+metadata/_custom_type_script = "uid://dqenbkmm4o1s2"
+
+[node name="hurt_collider" type="CollisionShape2D" parent="HurtBox"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_lu5c6")
+debug_color = Color(0.72335345, 0.81521815, 0.33206972, 0.41960785)

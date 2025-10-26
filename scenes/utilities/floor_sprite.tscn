@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvxlr7njyheqi"]
+
+[ext_resource type="Texture2D" uid="uid://b75onhi26n6fv" path="res://textures/white_2x2.png" id="1_8dkhp"]
+
+[node name="FloorSprite" type="Sprite2D"]
+z_index = -1000
+z_as_relative = false
+texture = ExtResource("1_8dkhp")
