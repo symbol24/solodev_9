@@ -9,16 +9,6 @@ script = ExtResource("1_4btmp")
 id = &"play_ui"
 metadata/_custom_type_script = "uid://bt1wwjwsr1i2v"
 
-[node name="timer" type="Label" parent="."]
-unique_name_in_owner = true
-modulate = Color(0.8117647, 0.8117647, 0.8117647, 1)
-layout_mode = 0
-offset_left = 548.0
-offset_top = 12.0
-offset_right = 621.0
-offset_bottom = 35.0
-text = "00:00:000"
-
 [node name="start_timer" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -32,3 +22,32 @@ theme_type_variation = &"StartTimer"
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="player_stuff" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 16.0
+offset_right = 164.0
+offset_bottom = 76.0
+theme_override_constants/separation = 2
+
+[node name="timer" type="Label" parent="player_stuff"]
+unique_name_in_owner = true
+modulate = Color(0.8117647, 0.8117647, 0.8117647, 1)
+layout_mode = 2
+text = "00:00:000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hp_bar" type="HBoxContainer" parent="player_stuff"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="lives" type="HBoxContainer" parent="player_stuff"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 4

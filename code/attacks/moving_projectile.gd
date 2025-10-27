@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 func setup_attack(new_data:AttackData) -> void:
 	attack_data = new_data
-	sprite.modulate = Data.BLACK if attack_data.damage.type == Data.Damage_Types.BLACK else Data.WHITE
+	sprite.modulate = Data.BLACK if attack_data.damage.type == Damage.Types.BLACK else Data.WHITE
 
 
 func shoot(new_position:Vector2, new_rotation:float) -> void:

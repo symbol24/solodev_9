@@ -13,6 +13,7 @@ var _extra_time := false
 func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS
 	Signals.load_scene.connect(_load_scene)
+	Signals.unload_level.connect(_unload_level)
 
 
 func _process(_delta: float) -> void:
@@ -36,7 +37,7 @@ func _load_scene(id:StringName, disply_loading:bool, extra_time:bool) -> void:
 	_to_load = id
 	_load_complete = false
 	_loading_status = ResourceLoader.ThreadLoadStatus.THREAD_LOAD_INVALID_RESOURCE
-	get_tree().paused = true
+	Signals.toggle_pause.emit(true)
 
 	if current_level != null:
 		var temp = current_level
@@ -55,9 +56,14 @@ func _complete_load() -> void:
 	add_child(current_level)
 	if not current_level.is_node_ready(): await current_level.ready
 	if _extra_time: await get_tree().create_timer(Data.EXTRA_LOAD_TIME).timeout
-	get_tree().paused = false
+	Signals.toggle_pause.emit(false)
 	Signals.level_ready.emit()
 	Signals.toggle_screen.emit(&"loading_screen", false)
 	if current_level is Level:
+		Signals.start_run.emit()
 		Signals.start_level.emit()
 		Signals.start_countdown.emit()
+
+
+func _unload_level() -> void:
+	current_level.queue_free.call_deferred()

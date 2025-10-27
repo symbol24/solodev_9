@@ -14,9 +14,11 @@ var _delay := 0.7
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	add_to_group(&"player")
 	Signals.start_level.connect(_start_level)
 	Signals.character_spawned.emit(self)
+	Signals.refocus_input.connect(_refocus_input)
 
 
 func _process(delta: float) -> void:
@@ -26,6 +28,9 @@ func _process(delta: float) -> void:
 		velocity = _move(_direction, velocity, delta)
 		velocity.limit_length(1.0)
 		move_and_slide()
+		
+		if not _damage_pool.is_empty() and not _applying_damage:
+			_apply_damage()
 		
 		if _shooting: 
 			_shoot_timer += delta
@@ -40,6 +45,7 @@ func _process(delta: float) -> void:
 
 
 func _exit_tree() -> void:
+	Signals.toggle_screen.emit(&"play_ui", false)
 	_input.unregister()
 
 
@@ -50,6 +56,7 @@ func setup_character(new_data:PlayerCharacterData) -> void:
 	add_child(_input)
 	_input.register()
 	sprite.modulate = Data.WHITE
+	Signals.character_data_ready.emit(_data)
 
 
 func set_direction(value:Vector2) -> void:
@@ -84,11 +91,21 @@ func trigger_switch() -> void:
 
 
 func trigger_pause() -> void:
-	pass
+	_input.toggle_focus(false)
+	Signals.toggle_screen.emit(&"pause_menu", true)
+	Signals.toggle_pause.emit(true)
 
 
 func get_imune_time() -> float:
 	return _data.imune_time
+
+
+func _apply_damage() -> void:
+	_applying_damage = true
+	var is_dead := _data.apply_damage(_damage_pool.pop_front(), Damage.Types.WHITE if is_white else Damage.Types.BLACK)
+	Signals.character_hp_updated.emit()
+	if is_dead: _die()
+	_applying_damage = false
 
 
 func _move(direction:Vector2, current:Vector2, delta:float) -> Vector2:
@@ -113,9 +130,21 @@ func _shoot_once() -> void:
 		var two:MovingProjectile = to_insta.instantiate()
 		_level.add_child(one)
 		_level.add_child(two)
-		one.setup_attack(to_shoot)
-		two.setup_attack(to_shoot)
+		one.setup_attack(to_shoot.duplicate(true))
+		two.setup_attack(to_shoot.duplicate(true))
 		one.attack_data.set_new_owner(_data)
 		two.attack_data.set_new_owner(_data)
 		one.shoot(shoot_point_1.global_position, rotation)
 		two.shoot(shoot_point_2.global_position, rotation)
+
+
+func _die() -> void:
+	var is_full_dead := _data.die()
+	Signals.character_lives_updated.emit()
+	if is_full_dead:
+		_is_active = false
+		Signals.character_is_full_dead.emit()
+
+
+func _refocus_input() -> void:
+	_input.toggle_focus(true)

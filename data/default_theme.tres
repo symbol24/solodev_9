@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cmsqb6bnb4hho"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cmsqb6bnb4hho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3fhk"]
 bg_color = Color(1, 1, 1, 1)
@@ -6,10 +6,25 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxuqd"]
 bg_color = Color(0.07450981, 0.07450981, 0.07450981, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uiit7"]
+bg_color = Color(0.07450981, 0.07450981, 0.07450981, 1)
+
 [resource]
 FloorWhite/base_type = &"Panel"
 FloorWhite/styles/panel = SubResource("StyleBoxFlat_x3fhk")
 LoadingScreenPanel/base_type = &"Panel"
 LoadingScreenPanel/styles/panel = SubResource("StyleBoxFlat_oxuqd")
+MainMenuTitle/base_type = &"Label"
+MainMenuTitle/font_sizes/font_size = 32
+MenuBackPanel/base_type = &"Panel"
+MenuBackPanel/styles/panel = SubResource("StyleBoxFlat_uiit7")
+RoundTitle/base_type = &"Label"
+RoundTitle/font_sizes/font_size = 32
+RunResultLabel/base_type = &"Label"
+RunResultLabel/font_sizes/font_size = 48
 StartTimer/base_type = &"Label"
 StartTimer/font_sizes/font_size = 108
+WarningText/base_type = &"Label"
+WarningText/font_sizes/font_size = 8
+WarningTitle/base_type = &"Label"
+WarningTitle/font_sizes/font_size = 24

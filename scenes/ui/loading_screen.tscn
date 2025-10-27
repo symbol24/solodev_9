@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cqtles1ute0cs" path="res://code/ui/loading_screen.gd" id="1_rqdcv"]
 
 [node name="LoadingScreen" type="Control"]
+z_index = 4096
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rqdcv")

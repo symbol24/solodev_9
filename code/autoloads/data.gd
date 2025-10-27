@@ -2,7 +2,6 @@ extends Node2D
 
 
 enum Track {MASTER, MUSIC, SFX}
-enum Damage_Types {WHITE = 0, BLACK = 1}
 
 
 const FOLDER := "user://save/"
@@ -13,6 +12,8 @@ const PLAYER_CHARACTER_DATA := "uid://b7663288ccnba"
 const WHITE:Color = Color("cfcfcfff")
 const BLACK:Color = Color("131313ff")
 const FLOOR_SPRITE_PATH := "uid://cvxlr7njyheqi"
+const HEART_PATH := "uid://c67t2dcvi0fdq"
+const LIFE_PATH := "uid://cj7a7bfx8auws"
 
 
 var player_character_data:PlayerCharacterData = null:

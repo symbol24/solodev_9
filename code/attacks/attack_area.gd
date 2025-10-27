@@ -2,6 +2,9 @@ class_name AttackArea extends Area2D
 
 
 @export var attack_data:AttackData
+
+var is_white:bool = false
+
 @onready var collider: CollisionShape2D = %collider
 
 
@@ -12,12 +15,12 @@ func setup_attack(new_data:AttackData) -> void:
 
 func get_damage() -> Damage:
 	collider.set_deferred(&"disabled", true)
-	get_tree().create_timer(0.1).timeout.connect(_reset_collider)
+	get_tree().create_timer(0.1, false).timeout.connect(_reset_collider)
 	return attack_data.get_damage()
 
 
 func is_white_damage() -> bool:
-	return attack_data.damage.type == Data.Damage_Types.WHITE
+	return attack_data.damage.type == Damage.Types.WHITE
 
 
 func _reset_collider() -> void:

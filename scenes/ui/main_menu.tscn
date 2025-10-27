@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://5oq6gipg0orj"]
+[gd_scene load_steps=4 format=3 uid="uid://5oq6gipg0orj"]
 
 [ext_resource type="Script" uid="uid://4q8djdu0evo5" path="res://code/ui/main_menu.gd" id="1_sl1te"]
+[ext_resource type="Texture2D" uid="uid://daeaofq33o17m" path="res://textures/triangle.png" id="2_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://bj8p3apm7rtdl" path="res://textures/enemies/circle.png" id="3_uhagc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,19 +11,96 @@ script = ExtResource("1_sl1te")
 id = &"main_menu"
 metadata/_custom_type_script = "uid://bt1wwjwsr1i2v"
 
-[node name="Label" type="Label" parent="."]
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(650, 370)
 layout_mode = 0
-offset_left = 271.0
-offset_top = 47.0
-offset_right = 367.0
-offset_bottom = 70.0
-text = "MAIN MENU"
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 645.0
+offset_bottom = 365.0
+theme_type_variation = &"MenuBackPanel"
 
-[node name="btn_play" type="Button" parent="."]
-unique_name_in_owner = true
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(640, 100)
 layout_mode = 0
-offset_left = 302.0
-offset_top = 154.0
-offset_right = 343.0
-offset_bottom = 185.0
-text = "play"
+offset_right = 640.0
+offset_bottom = 100.0
+theme_type_variation = &"MainMenuTitle"
+text = "SHAPES BUT BLACK AND WHITE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="explanation" type="Label" parent="."]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 0
+offset_top = 285.0
+offset_right = 640.0
+offset_bottom = 360.0
+text = "You can only hit and be hit by enemies of the same color. 
+Enemies of the wrong color appear as outlines."
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 178.0
+offset_right = 143.0
+offset_bottom = 218.0
+texture = ExtResource("2_x2yvf")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 178.0
+offset_right = 519.0
+offset_bottom = 218.0
+texture = ExtResource("3_uhagc")
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 0
+offset_left = 71.0
+offset_top = 118.0
+offset_right = 170.0
+offset_bottom = 168.0
+text = "This, is you..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 118.0
+offset_right = 654.0
+offset_bottom = 168.0
+text = "These are the bad guys...
+Defeat them."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 270.0
+offset_top = 107.0
+offset_right = 370.0
+offset_bottom = 235.0
+
+[node name="btn_play" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "PLAY"
+
+[node name="btn_controls" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "CONTROLS"
+
+[node name="btn_credits" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "CREDITS"

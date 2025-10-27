@@ -10,5 +10,7 @@ black_attack = ExtResource("1_8husm")
 white_attack = ExtResource("3_gxnxc")
 id = &"player_character"
 path = "res://scenes/character/character.tscn"
+starting_hp = 3
+starting_lives = 3
 starting_movement_speed = 75.0
 metadata/_custom_type_script = "uid://dnumtpng4o2cm"

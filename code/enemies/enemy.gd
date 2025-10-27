@@ -1,6 +1,10 @@
 class_name Enemy extends Entity
 
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
+
+
 var _target:Character = null:
 	get:
 		if _target == null: _target = get_tree().get_first_node_in_group(&"player")
@@ -14,6 +18,9 @@ func _process(delta: float) -> void:
 	if _is_active:
 		velocity = _move_to_target(velocity, delta)
 		move_and_slide()
+
+		if not _damage_pool.is_empty() and not _applying_damage:
+			_apply_damage()
 
 
 func setup_character(new_data:EnemyData) -> void:
@@ -31,15 +38,19 @@ func get_imune_time() -> float:
 	return _data.imune_time
 
 
-func hurt(damage:Damage) -> void:
-	var is_dead := _data.apply_damage(damage, Data.Damage_Types.WHITE if is_white else Data.Damage_Types.BLACK)
+func _apply_damage() -> void:
+	_applying_damage = true
+	var is_dead := _data.apply_damage(_damage_pool.pop_front(), Damage.Types.WHITE if is_white else Damage.Types.BLACK)
 	if is_dead: _die()
+	_applying_damage = false
 
 
 func _die() -> void:
-	_is_active = false
-	Signals.enemy_defeated.emit()
-	queue_free.call_deferred()
+	var is_full_dead := _data.die()
+	if is_full_dead:
+		_is_active = false
+		Signals.enemy_defeated.emit()
+		queue_free.call_deferred()
 
 
 func _move_to_target(current:Vector2, delta:float) -> Vector2:

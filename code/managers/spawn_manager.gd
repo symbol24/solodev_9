@@ -21,8 +21,9 @@ var _total_enemies := 0
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	Signals.spawn_character.connect(_spawn_character)
-	Signals.start_run.connect(_start_run)
+	Signals.start_round.connect(_start_run)
 	Signals.enemy_defeated.connect(_enemy_killed)
 
 
@@ -38,7 +39,7 @@ func _spawn_character(data:CharacterData, _position:Vector2) -> void:
 
 
 func _start_run() -> void:
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.4, false).timeout
 	_total_enemies = _get_enemy_count()
 	_spawn_enemies(_current_wave)
 
@@ -50,8 +51,8 @@ func _spawn_enemies(current_wave:int = 0) -> void:
 	for y in _level.enemy_waves[current_wave][&"wave_count"]:
 		for j in _level.enemy_waves[current_wave][&"spawn_per_wave"]:
 			_spawn_character(_level.enemy_waves[current_wave][&"data"], _get_random_position())
-			await get_tree().create_timer(ENEMY_SPAWN_INTERVAL).timeout
-		await get_tree().create_timer(_level.enemy_waves[current_wave][&"interval"]).timeout
+			await get_tree().create_timer(ENEMY_SPAWN_INTERVAL, false).timeout
+		await get_tree().create_timer(_level.enemy_waves[current_wave][&"interval"], false).timeout
 	
 	_current_wave += 1
 	_spawn_enemies(_current_wave)
@@ -75,11 +76,13 @@ func _get_enemy_count() -> int:
 	var total := 0
 	for k in _level.enemy_waves.keys():
 		total += _level.enemy_waves[k][&"wave_count"] * _level.enemy_waves[k][&"spawn_per_wave"]
-
+	
+	print("Total enemies: ", total)
 	return total
 
 
 func _enemy_killed() -> void:
 	_total_kills += 1
+	print("Total kills: ", _total_kills)
 	if _total_kills >= _total_enemies:
 		Signals.all_enemies_killed.emit()

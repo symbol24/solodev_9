@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bivrubw3f4esj" path="res://code/enemies/enemy_data.gd" id="3_xxy5b"]
 [ext_resource type="Texture2D" uid="uid://bj8p3apm7rtdl" path="res://textures/enemies/circle.png" id="4_1vps8"]
 
-[sub_resource type="Resource" id="Resource_00qn2"]
+[sub_resource type="Resource" id="Resource_yn5d2"]
 script = ExtResource("1_yn5d2")
 value = 1
 metadata/_custom_type_script = "uid://dj6xvphbvhy0r"
@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dj6xvphbvhy0r"
 script = ExtResource("3_xxy5b")
 texture = ExtResource("4_1vps8")
 oultine = ExtResource("2_esjr6")
-contact_damage = SubResource("Resource_00qn2")
+contact_damage = SubResource("Resource_yn5d2")
 id = &"white_circle"
 path = "uid://b7hr2tfqxjlr3"
 starting_hp = 1

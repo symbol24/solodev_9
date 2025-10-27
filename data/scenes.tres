@@ -12,8 +12,13 @@ list = Dictionary[StringName, String]({
 &"ui": "res://scenes/ui/ui.tscn"
 })
 controls = Dictionary[StringName, String]({
-&"loading_screen": "res://scenes/ui/loading_screen.tscn",
-&"main_menu": "res://scenes/ui/main_menu.tscn",
-&"play_ui": "uid://ds3kuwniwtubl"
+&"controls": "uid://bolvvudubqr0i",
+&"credits": "res://scenes/ui/credits.tscn",
+&"loading_screen": "uid://pp2s4p5vksxs",
+&"main_menu": "uid://5oq6gipg0orj",
+&"pause_menu": "uid://cayffis3xhk77",
+&"play_ui": "uid://ds3kuwniwtubl",
+&"round_screen": "res://scenes/ui/round_screen.tscn",
+&"run_screen": "uid://bl71fraxnybda"
 })
 metadata/_custom_type_script = "uid://cfr8qn5gtduk8"

@@ -9,7 +9,7 @@ class_name EnemyData extends CharacterData
 
 func get_color() -> Color:
 	if contact_damage != null:
-		return Data.WHITE if contact_damage.type == Data.Damage_Types.WHITE else Data.BLACK
+		return Data.WHITE if contact_damage.type == Damage.Types.WHITE else Data.BLACK
 	if projectile != null:
-		return Data.WHITE if projectile.damage.type == Data.Damage_Types.WHITE else Data.BLACK
-	return Data.WHITE
+		return Data.WHITE if projectile.damage.type == Damage.Types.WHITE else Data.BLACK
+	return Color.DEEP_PINK

@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://cerkhms0jtnny"]
+
+[ext_resource type="Script" uid="uid://drmj3fosm0km7" path="res://code/ui/credits.gd" id="1_oap8i"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_oap8i")
+id = &"credits"
+metadata/_custom_type_script = "uid://bt1wwjwsr1i2v"
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(650, 370)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 645.0
+offset_bottom = 365.0
+theme_type_variation = &"MenuBackPanel"
+
+[node name="title" type="Label" parent="."]
+custom_minimum_size = Vector2(640, 100)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 100.0
+theme_type_variation = &"MainMenuTitle"
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="credits" type="Label" parent="."]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 0
+offset_top = 160.0
+offset_right = 640.0
+offset_bottom = 183.0
+text = "EVERYTHING: Symbol24"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="return_button" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 0
+offset_left = 507.0
+offset_top = 296.0
+offset_right = 611.0
+offset_bottom = 336.0
+text = "MAIN MENU"

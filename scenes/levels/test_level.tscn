@@ -3,25 +3,43 @@
 [ext_resource type="Script" uid="uid://ddfrakksevwt1" path="res://code/utilities/level.gd" id="1_jbqir"]
 [ext_resource type="Resource" uid="uid://bwcppy3j4u2xq" path="res://data/enemies/white_circle_data.tres" id="2_6xh4u"]
 [ext_resource type="Script" uid="uid://buadh0glim06b" path="res://code/managers/floor_manager.gd" id="2_v45ci"]
-[ext_resource type="Texture2D" uid="uid://dj820li5mj6fh" path="res://icon.svg" id="2_yautc"]
 [ext_resource type="PackedScene" uid="uid://cvxlr7njyheqi" path="res://scenes/utilities/floor_sprite.tscn" id="3_6xh4u"]
 [ext_resource type="Script" uid="uid://debf3yhvi2bj2" path="res://code/managers/spawn_manager.gd" id="3_48ne7"]
 [ext_resource type="Resource" uid="uid://ca3i78dmqxhgd" path="res://data/enemies/black_circle_data.tres" id="3_cyt5c"]
+[ext_resource type="Texture2D" uid="uid://byamsd7vgg4gm" path="res://textures/enemies/square.png" id="7_cyt5c"]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_jbqir")
 enemy_waves = {
 0: {
+&"data": ExtResource("3_cyt5c"),
+&"interval": 2.0,
+&"spawn_per_wave": 2,
+&"wave_count": 3
+},
+1: {
 &"data": ExtResource("2_6xh4u"),
 &"interval": 2.0,
 &"spawn_per_wave": 1,
 &"wave_count": 3
 },
-1: {
+2: {
 &"data": ExtResource("3_cyt5c"),
-&"interval": 2.0,
+&"interval": 1.0,
+&"spawn_per_wave": 1,
+&"wave_count": 2
+},
+3: {
+&"data": ExtResource("2_6xh4u"),
+&"interval": 0.5,
 &"spawn_per_wave": 1,
 &"wave_count": 3
+},
+4: {
+&"data": ExtResource("3_cyt5c"),
+&"interval": 2.0,
+&"spawn_per_wave": 3,
+&"wave_count": 5
 }
 }
 
@@ -37,22 +55,26 @@ black_panel = NodePath("FloorSprite2")
 
 [node name="FloorSprite2" parent="FloorManager" instance=ExtResource("3_6xh4u")]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(3, 366)
-texture = ExtResource("2_yautc")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(7, 32)
-texture = ExtResource("2_yautc")
-
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(623, -16)
-texture = ExtResource("2_yautc")
-
-[node name="Icon4" type="Sprite2D" parent="."]
-position = Vector2(636, 347)
-texture = ExtResource("2_yautc")
-
 [node name="SpawnManager" type="Node2D" parent="."]
 script = ExtResource("3_48ne7")
 metadata/_custom_type_script = "uid://debf3yhvi2bj2"
+
+[node name="Square" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8, 8)
+texture = ExtResource("7_cyt5c")
+
+[node name="Square2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(632, 8)
+texture = ExtResource("7_cyt5c")
+
+[node name="Square3" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8, 352)
+texture = ExtResource("7_cyt5c")
+
+[node name="Square4" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(632, 352)
+texture = ExtResource("7_cyt5c")

@@ -1,13 +1,265 @@
-[gd_scene load_steps=2 format=3 uid="uid://tuamo82a00et"]
+[gd_scene load_steps=9 format=3 uid="uid://tuamo82a00et"]
 
 [ext_resource type="Script" uid="uid://bxyeqa5ulqepi" path="res://code/boot/boot.gd" id="1_lhnci"]
+[ext_resource type="Texture2D" uid="uid://busplkqqsf170" path="res://textures/ui/logo_back_mini.png" id="2_xgbku"]
+[ext_resource type="Texture2D" uid="uid://8vse75xkr4ba" path="res://textures/ui/godot file 2.svg" id="3_cfko8"]
+
+[sub_resource type="Animation" id="Animation_xgbku"]
+resource_name = "godot"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("godot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("godot:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cfko8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("godot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("godot:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("logo2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("logo2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("warnings:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("warnings:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fodqe"]
+resource_name = "logo"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("logo2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("logo2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_am3gy"]
+resource_name = "warning"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warnings:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("warnings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cfko8"]
+_data = {
+&"RESET": SubResource("Animation_cfko8"),
+&"godot": SubResource("Animation_xgbku"),
+&"logo": SubResource("Animation_fodqe"),
+&"warning": SubResource("Animation_am3gy")
+}
 
 [node name="Boot" type="Node2D"]
 script = ExtResource("1_lhnci")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 54.0
-offset_top = 53.0
-offset_right = 110.0
-offset_bottom = 76.0
-text = "boooot"
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(650, 370)
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 645.0
+offset_bottom = 365.0
+theme_type_variation = &"MenuBackPanel"
+
+[node name="warnings" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="warning_title" type="Label" parent="warnings"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 0
+offset_top = 30.0
+offset_right = 640.0
+offset_bottom = 64.0
+theme_type_variation = &"WarningTitle"
+text = "WARNING: PHOTOSENSITIVITY/EPILEPSY SEIZURES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="warning_text" type="Label" parent="warnings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 120.0
+offset_top = 103.0
+offset_right = 520.0
+offset_bottom = 325.0
+theme_type_variation = &"WarningText"
+text = "A very small percentage of people may experience epileptic seizures or blackouts when exposed to certain kinds of flashing lights or light patterns. These persons, or even people who have no history of seizures or epilepsy, may experience epileptic symptoms or seizures while playing video games.
+
+If you or any of your relatives has an epileptic condition or has had seizures of any kind, consult your physician before playing any video game.
+
+IMMEDIATELY DISCONTINUE use and consult a physician if you or your child experience any of the following symptoms: dizziness, altered vision, eye or muscle twitching, involuntary movements, loss of awareness, disorientation, or convulsions. Parents should watch for or ask their children about the above symptoms.
+
+You may reduce risk of photosensitive epileptic seizures by taking the following precautions: sit farther from the screen, use a smaller screen, play in a well-lit room, do not play when you are drowsy or fatigued."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="logo2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="logo" type="TextureRect" parent="logo2"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 49.0
+offset_right = 1000.0
+offset_bottom = 849.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_xgbku")
+
+[node name="Label" type="Label" parent="logo2"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 0
+offset_top = 268.0
+offset_right = 640.0
+offset_bottom = 291.0
+text = "Robots in Disguise"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="godot" type="TextureRect" parent="."]
+visible = false
+offset_left = 120.0
+offset_top = -20.0
+offset_right = 2120.0
+offset_bottom = 1980.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_cfko8")
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_cfko8")
+}

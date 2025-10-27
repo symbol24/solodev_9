@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj7a7bfx8auws"]
+
+[ext_resource type="Script" uid="uid://chth3f00n4pwb" path="res://code/ui/life.gd" id="1_n70ai"]
+[ext_resource type="Texture2D" uid="uid://daeaofq33o17m" path="res://textures/triangle.png" id="2_h8l2l"]
+
+[node name="life" type="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_n70ai")
+
+[node name="fill" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_h8l2l")
