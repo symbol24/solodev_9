@@ -45,6 +45,7 @@ signal all_enemies_killed
 
 # FLOOR MANAGER
 signal toggle_ground_color(color:Color)
+signal floor_animation_complete
 
 # CHARACTER
 signal character_spawned(character:Character)

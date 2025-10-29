@@ -62,6 +62,7 @@ func _end_animation() -> void:
 	to_hide.hide()
 	animating = false
 	timer = 0.0
+	Signals.floor_animation_complete.emit()
 
 
 func _attach_to_character(character:Character) -> void:

@@ -14,7 +14,9 @@ func process_input(_delta:float, _event:InputEvent) -> void:
 	elif Data.active_data.input_type == InputManager.Type.MOUSEANDKEYBOARD:
 		character.look_at_mouse(get_global_mouse_position())
 	if _event != null:
-		if _event.is_action_pressed("attack"): character.trigger_attack(true)
-		elif _event.is_action_released("attack"): character.trigger_attack(false)
-		if _event.is_action_pressed("switch"): character.trigger_switch()
-		if _event.is_action_pressed("pause"): character.trigger_pause()
+		if Input.is_action_just_pressed("switch"): character.trigger_switch()
+		if Input.is_action_just_pressed("attack"): 
+			character.trigger_attack(true)
+			print(Input.get_action_strength("attack"))
+		elif Input.is_action_just_released("attack"): character.trigger_attack(false)
+		if Input.is_action_just_pressed("pause"): character.trigger_pause()

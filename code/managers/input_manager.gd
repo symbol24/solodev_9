@@ -15,10 +15,8 @@ var _process_inputs := false
 
 func _input(event: InputEvent) -> void:
 	if _input_type != Type.MOUSEANDKEYBOARD and (event is InputEventKey or event is InputEventMouseButton):
-		print("Detecting kbm")
 		_switch_to_kbm.call_deferred()
 	if _input_type != Type.XBOX and (event is InputEventJoypadButton or event is InputEventJoypadMotion):
-		print("Detecting gamepad")
 		_switch_to_xbox.call_deferred()
 
 	if event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton or event is InputEventJoypadMotion:

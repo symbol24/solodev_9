@@ -7,6 +7,7 @@ var _aim_direction := Vector2.RIGHT
 var _shooting := false
 var _shoot_timer := 0.0
 var _delay := 0.7
+var _switching := false
 
 @onready var remote_transform: RemoteTransform2D = %remote_transform
 @onready var shoot_point_1: Marker2D = %shoot_point_1
@@ -19,6 +20,7 @@ func _ready() -> void:
 	Signals.start_level.connect(_start_level)
 	Signals.character_spawned.emit(self)
 	Signals.refocus_input.connect(_refocus_input)
+	Signals.floor_animation_complete.connect(_floor_animation_complete)
 
 
 func _process(delta: float) -> void:
@@ -81,7 +83,8 @@ func trigger_attack(value:bool) -> void:
 
 
 func trigger_switch() -> void:
-	if _is_active:
+	if _is_active and not _switching:
+		_switching = true
 		if is_white:
 			sprite.modulate = Data.BLACK
 			Signals.toggle_ground_color.emit(Data.WHITE)
@@ -148,3 +151,7 @@ func _die() -> void:
 
 func _refocus_input() -> void:
 	_input.toggle_focus(true)
+
+
+func _floor_animation_complete() -> void:
+	_switching = false
